@@ -1,0 +1,477 @@
+<style>
+    /*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+	--first-color: #530000;
+	--second-color: #ff0000;
+	--title-color: rgba(255, 255, 255, 0.9);
+	--text-color: rgba(255, 255, 255, 0.7);
+	--body-color: #494949;
+
+	/*========== Font and typography ==========*/
+	/*.5rem = 8px | 1rem = 16px ...*/
+	--body-font: "Poppins", sans-serif;
+	--h2-font-size: 1.25rem;
+	--small-font-size: 0.813rem;
+	--smaller-font-size: 0.75rem;
+
+	/*========== Font weight ==========*/
+	--font-medium: 500;
+	--font-semi-bold: 600;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 1024px) {
+	:root {
+		--h2-font-size: 1.75rem;
+		--normal-font-size: 1rem;
+		--small-font-size: 0.875rem;
+		--smaller-font-size: 0.813rem;
+	}
+}
+
+/*=============== BASE ===============*/
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: black; /* or #ffffff */
+	font-family: var(--body-font);
+	color: var(--text-color);
+	/* background-image: url('https://www.shutterstock.com/image-vector/medical-health-care-human-kidney-260nw-2391753911.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+    background-size: cover;
+    background-position: center; */
+}
+
+
+input,
+button {
+	font-family: var(--body-font);
+	border: none;
+	outline: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/*=============== LOGIN FORM ===============*/
+.login__content,
+.login__form,
+.login__inputs {
+	display: grid;
+}
+
+.login__content {
+	position: relative;
+	height: 850px;
+	width: 850px;
+	align-items: center;
+}
+
+.login__img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	border-radius: 20px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.login__form {
+	position: relative;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 2px solid rgba(255, 255, 255, 0.06);
+	margin-inline: 1.5rem;
+	row-gap: 1.25rem;
+	backdrop-filter: blur(20px);
+	padding: 2rem;
+	border-radius: 20px;
+	width: 850px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.login__title {
+	color: var(--title-color);
+	font-size: var(--h2-font-size);
+	margin-bottom: 0.5rem;
+	text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login__title span {
+	color: var(--first-color);
+}
+
+.login__description {
+	font-size: var(--small-font-size);
+}
+
+.login__inputs {
+	row-gap: 0.75rem;
+	margin-bottom: 0.5rem;
+}
+
+.login__label {
+	display: block;
+	color: var(--title-color);
+	font-size: var(--small-font-size);
+	font-weight: var(--font-semi-bold);
+	margin-bottom: 0.25rem;
+}
+
+.login__input {
+	width: 100%;
+	padding: 14px 12px;
+	border-radius: 6px;
+	border: 2px solid var(--text-color);
+	background-color: rgba(255, 255, 255, 0.1);
+	color: var(--title-color);
+	font-size: var(--smaller-font-size);
+	font-weight: var(--font-medium);
+	transition: border 0.4s, box-shadow 0.4s;
+	box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login__input::placeholder {
+	color: var(--text-color);
+}
+
+.login__input:focus,
+.login__input:valid {
+	border: 2px solid var(--first-color);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login__box {
+	position: relative;
+}
+
+.login__box .login__input {
+	padding-right: 36px;
+}
+
+.login__eye {
+	width: max-content;
+	height: max-content;
+	position: absolute;
+	right: 0.75rem;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	font-size: 1.25rem;
+	cursor: pointer;
+	color: var(--title-color);
+}
+
+.login__check {
+	display: flex;
+	column-gap: 0.5rem;
+	align-items: center;
+}
+
+.login__check-input {
+	appearance: none;
+	width: 16px;
+	height: 16px;
+	border: 2px solid var(--text-color);
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 0.25rem;
+	position: relative;
+}
+
+.login__check-input:checked {
+	background: var(--first-color);
+	box-shadow: 0 0 5px var(--first-color);
+}
+
+.login__check-input:checked::before {
+	content: "✔";
+	display: block;
+	color: #fff;
+	font-size: 0.75rem;
+	transform: translate(1.5px, -2.5px);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.login__check-label {
+	font-size: var(--small-font-size);
+}
+
+.login__buttons {
+	display: flex;
+	column-gap: 0.75rem;
+}
+
+.login__button {
+	width: 100%;
+	padding: 14px 2rem;
+	border-radius: 6px;
+	background: linear-gradient(180deg, var(--first-color), var(--second-color));
+	color: #fff;
+	font-size: var(--small-font-size);
+	font-weight: var(--font-semi-bold);
+	box-shadow: 0 6px 24px hsla(5, 75%, 48%, 0.5);
+	margin-bottom: 1rem;
+	cursor: pointer;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login__button:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 12px 24px hsla(5, 75%, 48%, 0.5);
+}
+
+.login__button-ghost {
+	background: rgba(255, 255, 255, 0.2);
+	border: 2px solid var(--first-color);
+	color: var(--first-color);
+	box-shadow: none;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login__button-ghost:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 24px var(--first-color);
+}
+
+.login__forgot {
+	font-size: var(--smaller-font-size);
+	font-weight: var(--font-semi-bold);
+	color: var(--first-color);
+	text-decoration: none;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 360px) {
+	.login__buttons {
+		flex-direction: column;
+	}
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+	.login__form {
+		width: 850px;
+		justify-self: center;
+	}
+}
+
+/* For large devices */
+@media screen and (min-width: 1064px) {
+	.container {
+		height: 100vh;
+		display: grid;
+		place-items: center;
+	}
+
+	.login__content {
+		width: 1024px;
+		height: 600px;
+	}
+	.login__img {
+		border-radius: 3.5rem;
+		box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+	}
+	.login__form {
+		justify-self: flex-end;
+		margin-right: 4.5rem;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.login__content {
+		height: 700px;
+	}
+	.login__form {
+		row-gap: 2rem;
+		padding: 3rem;
+		border-radius: 1.25rem;
+		border: 2.5px solid rgba(255, 255, 255, 0.06);
+	}
+	.login__description,
+	.login__label,
+	.login__button {
+		font-size: var(--normal-font-size);
+	}
+	.login__inputs {
+		row-gap: 1.25rem;
+		margin-bottom: 0.75rem;
+	}
+	.login__input {
+		border: 2.5px solid var(--text-color);
+		padding: 1rem;
+		font-size: var(--small-font-size);
+	}
+	.login__input:focus,
+	.login__input:valid {
+		border: 2.5px solid var(--first-color);
+	}
+	.login__button {
+		padding-block: 1rem;
+		margin-bottom: 1.25rem;
+	}
+	.login__button-ghost {
+		border: 2.5px solid var(--first-color);
+	}
+}
+
+</style>
+
+<div class="container">
+	<div class="login__content">
+
+		<form action="{% url 'Deploy_9' %}"  method='POST' class="login__form">
+            {% csrf_token %}
+			<div>
+				<h1 class="login__title">
+					<span style="color: rgb(0, 9, 128);">KIDNEY DISEASE</span>  MODEL
+				</h1>
+				<p class="login__description">
+				
+				</p>
+			</div>
+
+			<div>
+				<div class="login__inputs">
+					<div>
+						<label for="" class="login__label">Bp</label>
+						<input type="number" step="0.000001" placeholder="Enter your Bp"  name='Bp' required class="login__input">
+					</div>
+
+					<div>
+						<label for="" class="login__label">Sg</label>
+						<input type="number" step="0.000001" placeholder="Enter your Sg"  name='Sg' required class="login__input">
+					</div>
+                    <div>
+						<label for="" class="login__label">Al</label>
+						<input type="number"step="0.000001" placeholder="Enter Al"  name='Al' required class="login__input">
+					</div>
+
+					<div>
+						<label for="" class="login__label">Su</label>
+						<input type="text" step="0.000001" placeholder="Enter your Su"  name='Su' required class="login__input">
+                        
+                    </div>
+                    <div>
+						<label for="" class="login__label">Rbc</label>
+                        <input type="text" step="0.000001" placeholder="Enter your Rbc"  name='Rbc' required class="login__input">
+
+
+					</div>
+                    <div>
+						<label for="" class="login__label">Bu</label>
+						<input type="number" step="0.000001" placeholder="Enter your Bu"  name='Bu' required class="login__input">
+					</div>
+
+					<div>
+						<label for="" class="login__label">Sc</label>
+						<input type="text" step="0.000001" placeholder="Enter your Sc"  name='Sc' required class="login__input">
+                        
+                    </div>
+                    <div>
+						<label for="" class="login__label">Sod</label>
+                        <input type="text" step="0.000001" placeholder="Enter your Sod"  name='Sod' required class="login__input">
+
+
+					</div><div>
+						<label for="" class="login__label">Pot</label>
+						<input type="number" step="0.000001" placeholder="Enter Pot"  name='Pot' required class="login__input">
+					</div>
+
+					<div>
+						<label for="" class="login__label">Hemo</label>
+						<input type="text" step="0.000001" placeholder="Enter your Hemo"  name='Hemo' required class="login__input">
+                        
+                    </div>
+                    <div>
+						<label for="" class="login__label">Wbcc</label>
+                        <input type="text" step="0.000001" placeholder="Enter your Wbcc"  name='Wbcc' required class="login__input">
+
+
+					</div><div>
+						<label for="" class="login__label">Rbcc</label>
+						<input type="number" step="0.000001" placeholder="Enter Rbcc"  name='Rbcc' required class="login__input">
+					</div>
+
+					<div>
+						<label for="" class="login__label">Htn</label>
+						<input type="text" step="0.000001" placeholder="Enter your Htn"  name='Htn' required class="login__input">
+                        
+                    </div>
+                    
+				
+			</div>
+
+			<div>
+				<div class="login__buttons">
+					<button class="login__button">submit</button>
+					
+				</div>
+
+			
+			</div>
+		</form>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    /*=============== SHOW HIDDEN - PASSWORD ===============*/
+const showHiddenPass = (inputPass, inputIcon) => {
+	const input = document.getElementById(inputPass),
+		iconEye = document.getElementById(inputIcon);
+
+	iconEye.addEventListener("click", () => {
+		// Change password to text
+		if (input.type === "password") {
+			// Switch to text
+			input.type = "text";
+
+			// Add icon
+			iconEye.classList.add("ri-eye-line");
+			// Remove icon
+			iconEye.classList.remove("ri-eye-off-line");
+		} else {
+			// Change to password
+			input.type = "password";
+
+			// Remove icon
+			iconEye.classList.remove("ri-eye-line");
+			// Add icon
+			iconEye.classList.add("ri-eye-off-line");
+		}
+	});
+};
+
+showHiddenPass("input-pass", "input-icon");
+
+</script>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600;700&display=swap');
+
+        
+        
+        body {
+          background-image: url('https://wallpaper.dog/large/20610779.jpg'); 
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+        
+        table {
+          width: 80%;
+          margin: 30px auto;
+          background-color: #fff;
+          border-collapse: collapse;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        table caption {
+          font-size: 24px;
+          font-weight: bold;
+          color: #333;
+          padding: 10px;
+          text-align: center;
+        }
+        
+        table th,
+        table td {
+          padding: 12px 15px;
+          text-align: center;
+        }
+        
+        table thead {
+          background-color: #4158D0;
+          color: #fff;
+        }
+        
+        table tbody tr:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+        
+        table th {
+          font-size: 14px;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+        
+        @media screen and (max-width: 600px) {
+          table {
+            width: 95%;
+          }
+        
+          table caption {
+            font-size: 18px;
+            padding: 8px;
+          }
+        
+          table thead {
+            display: none;
+          }
+        
+          table tbody tr {
+            display: block;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          }
+        
+          table td {
+            display: block;
+            text-align: right;
+            font-size: 14px;
+          }
+        
+          table td::before {
+            content: attr(data-label);
+            font-weight: bold;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 5px;
+          }
+        }
+        .btn-custom {
+          display: inline-block;
+          padding: 12px 24px;
+          font-size: 16px;
+          cursor: pointer;
+          text-align: center;
+          text-decoration: none;
+          outline: none;
+          color: #fff;
+          background: linear-gradient(145deg, #333, #555); /* Gradient background */
+          border: none;
+          border-radius: 8px; /* Rounded corners */
+          box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2), -6px -6px 12px rgba(255, 255, 255, 0.3); /* 3D shadow */
+          transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+          margin-bottom: 20px;
+      }
+      
+      .btn-custom:hover {
+          background: linear-gradient(145deg, #444, #666); /* Darker gradient on hover */
+          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.3); /* Slightly reduced shadow on hover */
+      }
+      
+      .btn-custom:active {
+          background: linear-gradient(145deg, #333, #555); /* Same gradient as the default state */
+          box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.3); /* Inset shadow for a pressed effect */
+          transform: translateY(2px); /* Slight movement to simulate button press */
+      }
+      
+
+
+    </style>
+</head>
+<body>
+    <table>
+        <caption>IMAGE DATABASE</caption><br>
+        <a href="{% url 'Home_4' %}" class="btn btn-custom mb-3">Home</a>
+        <thead>
+          <tr class="thead">
+            <th scope="col">IMAGES</th>
+            <th scope="col">LABEL</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for model in models %}
+          <tr>
+            <td data-label="name"><img class="h-auto max-w-full rounded-lg" src="{{ model.image.url }}" style="width: 250px;height: 250px;" alt="Image"></td>
+            <td>{{model.label}}</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    
+</body>
+</html>

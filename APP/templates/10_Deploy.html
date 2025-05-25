@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body {
+            background-image: url('https://www.shutterstock.com/image-vector/medical-health-care-human-kidney-260nw-2391753911.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+        }
+    
+        .back-button {
+            display: inline-block;
+            margin: 20px;
+            font-size: 18px;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+    
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    
+        h1 {
+            margin-top: 40px;
+        }
+    
+        .container {
+            width: 60%;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+    
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        form p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+    
+        input[type="file"] {
+            padding: 10px;
+            background: white;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #16a085;
+        }
+    
+        .circle {
+            margin-top: 30px;
+            width: 200px;
+            height: 200px;
+            background: #34495e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+    
+        .circle-score h2 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+    
+        img {
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+    
+        /* Drag and Drop Styles */
+        .drag-area {
+            border: 2px dashed #fff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+    
+        .drag-area.dragover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+    
+</head>
+<body>
+    <a class="back-button" href="{% url 'Home_4' %}" style="color: white;">
+        Home
+    </a>
+    <center><h1 style="color: rgb(255, 255, 255);">Kidney Disease Image Processing</h1><br><br><br>
+        <div class="container">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p style="margin-right: 170px;">*  Select the Medical Image of Kidney</p>
+            {{ form.as_p }}
+            <input type="submit" Value='Analyze Image' style="margin-right: 230px;">
+        </form><br><br><br><br>
+        <div class="drag-area" id="drag-area">
+            <p>Drag & Drop Kidney Image Here or Click to Upload</p>
+            <input type="file" name="image" id="file-input" hidden>
+        </div>
+        
+        </div>
+    </center>
+    {% if obj %}
+    <center><br>
+        
+        <img src="{{ obj.image.url }}" height="200" width="350">
+        <div class="circle">
+        <div class="circle-score">
+            <h2 style="color: rgb(255, 246, 246); font-size: 30px;" >{{predict | upper}}<h2>
+        </div>
+        </div>
+    </center>
+    {% endif %}
+</body>
+<script>
+    const dragArea = document.getElementById("drag-area");
+    const fileInput = document.getElementById("file-input");
+
+    dragArea.addEventListener("click", () => fileInput.click());
+
+    dragArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dragArea.classList.add("dragover");
+    });
+
+    dragArea.addEventListener("dragleave", () => {
+        dragArea.classList.remove("dragover");
+    });
+
+    dragArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dragArea.classList.remove("dragover");
+
+        const file = e.dataTransfer.files[0];
+        fileInput.files = e.dataTransfer.files;
+    });
+</script>
+
+</html>

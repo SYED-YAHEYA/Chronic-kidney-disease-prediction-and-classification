@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login Page</title>
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #4bc1d6 0%, #6a5af9 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .drop {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      padding: 40px;
+      width: 350px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .drop:hover {
+      transform: translateY(-10px);
+    }
+    .drop h2 {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      animation: bounceIn 2s;
+    }
+    .drop .input-box {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .drop .input-box input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.25);
+      color: #fff;
+      font-size: 1rem;
+      box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: 0.3s ease;
+    }
+    .drop .input-box input::placeholder {
+      color: #ddd;
+    }
+    .drop .input-box input[type="submit"] {
+      background: linear-gradient(135deg, #6a5af9 0%, #4bc1d6 100%);
+      color: #fff;
+      font-weight: 500;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .drop .input-box input[type="submit"]:hover {
+      background: linear-gradient(135deg, #4bc1d6 0%, #6a5af9 100%);
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #6a5af9;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .btn:hover {
+      background: #4bc1d6;
+      transform: translateY(-5px);
+    }
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="drop">
+    <h2>Sign In</h2>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <div class="input-box">
+        <input type="text" name="username" placeholder="Username" required>
+      </div>
+      <div class="input-box">
+        <input type="password" name="password" placeholder="Password" required>
+      </div>
+      <div class="input-box">
+        <input type="submit" value="Sign In">
+      </div>
+    </form>
+  </div>
+  <a href="{% url 'Register_2' %}" class="btn">Sign Up</a>
+</div>
+
+</body>
+</html>

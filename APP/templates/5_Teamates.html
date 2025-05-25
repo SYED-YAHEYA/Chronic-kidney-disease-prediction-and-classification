@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-ttZ5UjOr8Nen5InC2C1QFkVskwMJjsn7x++hHl8I7j2vv6J4OSiHbR7Oo+d12OV3KBgNyQU4rOcA1j6FZI3HDg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #585858;
+            background-image: url('https://wallpaper.dog/large/20610779.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .info-section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h4 {
+            color: #343a40;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        ul li {
+            background: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        ul li i {
+            color: #007bff;
+            margin-right: 10px;
+        }
+        
+        .text-success {
+            color: #28a745;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .center h4 {
+            margin-bottom: 10px;
+        }
+        
+        ul li strong {
+            color: #495057;
+        }
+        
+        .info-section h4 + ul {
+            margin-top: 10px;
+        }
+        
+        .info-section ul {
+            margin-top: 20px;
+        }
+        
+        .info-section ul li {
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-section ul li strong {
+            color: #495057;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            
+            .info-section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Health Information</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'Home_4' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'patient_list' %}">Database</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'report' %}">Report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'matrix' %}">Matrix report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Logout' %}">Logout</a>
+                </li>
+                
+        </div>
+    </nav>
+{% if prediction_text == 'This conditions is No Kidney Disease predict' %}
+<div class="container" id="home">
+    <div class="info-section">
+        
+        <h2>Kidney Health Information</h2>
+        <center><h4>This conditions is No Kidney Disease predict</h4>
+        <center><h4>KIDNEY IS HEALTHY NO SIGN OF KIDNEY DISEASE</h4>
+        <h4><p class="text-success">Maintaining Healthy Kidneys</p></h4></center><br><br>
+        <h4><i class="bi bi-heart"></i>Causes of Kidney Problems follow this health informations</h4><br><br>
+            
+        <ul>
+            <li><i class="fas fa-tint"></i> <strong>Chronic Kidney Disease (CKD):</strong> Gradual loss of kidney function over time.</li>
+            <li><i class="fas fa-dna"></i> <strong>Diabetes:</strong> High blood sugar can damage blood vessels in the kidneys.</li>
+            <li><i class="fas fa-heartbeat"></i> <strong>High Blood Pressure:</strong> Can lead to kidney damage by putting extra strain on the blood vessels.</li>
+            <li><i class="fas fa-pills"></i> <strong>Kidney Stones:</strong> Hard deposits of minerals and salts that form in the kidneys.</li>
+            <li><i class="fas fa-bacteria"></i> <strong>Infections:</strong> Urinary tract infections (UTIs) can affect kidney function.</li>
+            <li><i class="fas fa-lungs"></i> <strong>Genetic Conditions:</strong> Such as polycystic kidney disease (PKD).</li>
+            <li><i class="fas fa-capsules"></i> <strong>Medication Use:</strong> Overuse of certain medications or substances can impact kidney health.</li>
+            <li><i class="fas fa-alarm-clock"></i> <strong>Dehydration:</strong> Lack of sufficient water intake can lead to kidney problems.</li>
+        </ul>
+
+        <h4>Prevention and Healthy Practices</h4>
+        <ul>
+            <li><strong>Stay Hydrated:</strong> Drink plenty of fluids to support kidney function.</li>
+            <li><strong>Healthy Diet:</strong> Follow a balanced diet low in sodium and rich in fruits and vegetables.</li>
+            <li><strong>Regular Exercise:</strong> Engage in physical activities to maintain a healthy weight.</li>
+            <li><strong>Monitor Blood Pressure and Blood Sugar:</strong> Regularly check and manage these levels.</li>
+            <li><strong>Avoid Excessive Use of Medications:</strong> Use over-the-counter and prescription medications as directed.</li>
+            <li><strong>Quit Smoking:</strong> Smoking can worsen kidney conditions and overall health.</li>
+            <li><strong>Regular Check-ups:</strong> Schedule routine visits with a healthcare provider to monitor kidney health.</li>
+            <li><strong>Limit Alcohol Intake:</strong> Excessive alcohol consumption can impact kidney function.</li>
+        </ul>
+
+        <h4>Managing Kidney Health</h4>
+        <ul>
+            <li><strong>Medications:</strong> Take prescribed medications to manage kidney-related conditions.</li>
+            <li><strong>Dietary Adjustments:</strong> Follow dietary recommendations to reduce stress on the kidneys.</li>
+            <li><strong>Fluid Intake:</strong> Maintain proper hydration as advised by your healthcare provider.</li>
+            <li><strong>Regular Monitoring:</strong> Regular check-ups to assess kidney function and adjust treatments as necessary.</li>
+            <li><strong>Manage Underlying Conditions:</strong> Effectively manage conditions such as diabetes and hypertension that impact kidney health.</li>
+            <li><strong>Consult a Specialist:</strong> Seek advice from a nephrologist for specialized care if needed.</li>
+        </ul>
+
+        <h4>Exercise for Kidney Health</h4>
+        <ul>
+            <li><strong>Walking:</strong> A simple and effective exercise to improve overall health.</li>
+            <li><strong>Swimming:</strong> Gentle on the joints and beneficial for Kidney health.</li>
+            <li><strong>Cycling:</strong> Promotes Kidney fitness and weight management.</li>
+            <li><strong>Yoga:</strong> Incorporates stretching and breathing exercises to support overall wellness.</li>
+        </ul>
+    </div>
+</div>
+
+
+{% elif prediction_text == 'This conditions is Kidney Disease predict' %}
+<div class="container" id="home">
+    <div class="info-section">
+        
+        <h2>Kidney Disease Information</h2>
+        <center><h4>GUIDANCE FROM A DOCTOR </h4>
+        <h4><p class="text-success">Kidney Disease Predicted Further Medical Evaluation is Recommended</p></h4></center><br><br>
+        <h4><i class="bi bi-chat-heart"></i>Causes of Kidney Disease</h4>
+            
+        <ul>
+            <li><i class="fas fa-heartbeat"></i> <strong>Diabetes:</strong> High blood sugar levels can damage kidney tissues over time.</li>
+            <li><i class="fas fa-tachometer-alt"></i> <strong>High Blood Pressure:</strong> Can lead to kidney damage by causing blood vessels in the kidneys to become narrow and hard.</li>
+            <li><i class="fas fa-pills"></i> <strong>Glomerulonephritis:</strong> Inflammation of the kidney's filtering units.</li>
+            <li><i class="fas fa-kidney"></i> <strong>Polycystic Kidney Disease:</strong> Genetic disorder causing cysts to form in the kidneys.</li>
+            <li><i class="fas fa-toilet-paper"></i> <strong>Urinary Tract Infections (UTIs):</strong> Can lead to kidney infections if not treated promptly.</li>
+            <li><i class="fas fa-medkit"></i> <strong>Kidney Stones:</strong> Hard deposits of minerals and salts that can block the urinary tract.</li>
+            <li><i class="fas fa-exclamation-triangle"></i> <strong>Chronic Kidney Disease:</strong> Progressive loss of kidney function over time.</li>
+        </ul>
+
+        <h4>Prevention and Healthy Practices</h4>
+        <ul>
+            <li><strong>Monitor Blood Sugar Levels:</strong> Keep diabetes under control with regular checks and proper medication.</li>
+            <li><strong>Manage Blood Pressure:</strong> Maintain healthy blood pressure levels with diet, exercise, and medication if needed.</li>
+            <li><strong>Stay Hydrated:</strong> Drink adequate water daily to help kidneys flush out toxins.</li>
+            <li><strong>Healthy Diet:</strong> Focus on a balanced diet low in sodium, potassium, and phosphorus. Include fruits, vegetables, and whole grains.</li>
+            <li><strong>Avoid Excessive Painkillers:</strong> Overuse of non-steroidal anti-inflammatory drugs (NSAIDs) can harm the kidneys.</li>
+            <li><strong>Regular Exercise:</strong> Engage in physical activity to maintain overall health and manage weight.</li>
+            <li><strong>Routine Check-ups:</strong> Regular visits to a healthcare provider for kidney function tests and screenings.</li>
+        </ul>
+
+        <h4>Managing Kidney Health</h4>
+        <ul>
+            <li><strong>Medications:</strong> Follow prescribed treatments to manage kidney disease and prevent complications.</li>
+            <li><strong>Monitor Symptoms:</strong> Be aware of symptoms such as swelling, fatigue, or changes in urination.</li>
+            <li><strong>Dietary Adjustments:</strong> Adjust your diet based on your doctor's recommendations to support kidney health.</li>
+            <li><strong>Fluid Intake:</strong> Follow guidelines for fluid consumption, especially if on dialysis.</li>
+            <li><strong>Physical Activity:</strong> Engage in suitable exercises to maintain fitness and manage weight.</li>
+            <li><strong>Regular Monitoring:</strong> Consistent check-ups to evaluate kidney function and adjust treatments as necessary.</li>
+        </ul>
+
+        <h4>Exercise for Kidney Health</h4>
+        <ul>
+            <li><strong>Walking:</strong> Gentle and accessible exercise that supports overall health.</li>
+            <li><strong>Swimming:</strong> Low-impact exercise that is easy on the joints and beneficial for Kidney health.</li>
+            <li><strong>Stretching:</strong> Incorporate stretching exercises to improve flexibility and reduce muscle tension.</li>
+            <li><strong>Low-Impact Aerobics:</strong> Engage in low-impact aerobic exercises to maintain Kidney health.</li>
+        </ul>
+    </div>
+</div>
+
+    {% endif %}
+    <!-- Add a Contact Section -->
+    
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>

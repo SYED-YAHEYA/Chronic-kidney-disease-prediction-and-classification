@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            width: 380px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.7s ease;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .container h2 {
+            text-align: center;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 20px;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .container form .input-box {
+            position: relative;
+        }
+        .container form .input-box input {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .container form .input-box input:focus {
+            border-color: #6e8efb;
+            box-shadow: 0 0 8px rgba(110, 142, 251, 0.2);
+        }
+        .container form .input-box input[type='submit'] {
+            background-color: #6e8efb;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        .container form .input-box input[type='submit']:hover {
+            background-color: #5961f9;
+        }
+        .signin-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #333;
+        }
+        .signin-link a {
+            color: #6e8efb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .signin-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="animate__animated animate__fadeInDown">Sign Up</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password1" placeholder="Password" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password2" placeholder="Confirm Password" required>
+            </div>
+            <div class="input-box">
+                <input type="submit" value="Sign Up">
+            </div>
+        </form>
+        <div class="signin-link">
+            Already have an account? <a href="{% url 'Login_3' %}">Sign In</a>
+        </div>
+    </div>
+</body>
+</html>
